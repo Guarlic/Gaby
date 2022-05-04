@@ -10,7 +10,8 @@ module.exports = {
           .setDescription('Work!'),
   async execute(interaction) {
     const wallet_money = `wallet.money.${interaction.guild.id}.${interaction.member.id}`;
-    const addmoney = 100;
+    const moneylist = [80, 90, 100, 100, 120];
+    const addmoney = moneylist[Math.floor(Math.random() * moneylist.length)];
     const save = walletdb.get(wallet_money);
     const wallet = save + addmoney;
 

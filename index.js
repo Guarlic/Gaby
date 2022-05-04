@@ -26,14 +26,14 @@ client.on('interactionCreate', async interaction => {
   const wallet_money = `wallet.money.${interaction.guild.id}.${interaction.member.id}`;
   const wallet = walletdb.get(wallet_money);
 
-  if (wallet == undefined) walletdb.set(wallet_money, 0);
+  if (wallet == undefined || wallet == NaN) walletdb.set(wallet_money, 0);
 
   if (!command) {
     console.log('It\'s not a command!');
     return;
   }
 
-  console.log(`${interaction.member.username}#${interaction.user.discriminator} Requested ${interaction.commandName}`);
+  console.log(`In Guild [ ${interaction.guild.name} ] Channel < ${interaction.channel.name} > ${interaction.member.user.username}#${interaction.user.discriminator} Requested ${interaction.commandName}`);
 
   try {
     await command.execute(interaction);
