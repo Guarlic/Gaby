@@ -1,5 +1,5 @@
 <h1 align=center>
-  Msilot1001의 C# 작업물
+  Msilot1001의 Typescript Discord.js 봇 템플릿
 </h1>
 <br/>
 <h1 align=center>
