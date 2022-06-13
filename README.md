@@ -10,10 +10,14 @@
 </h3>
 <h3>
   Step 1: node, npm 설치하기 (잘 검색해서 찾아보시기 바람)
+  <br />
   Step 2: git clone https://github.com/msilot1001/Typescript-DJS-Template.git
+  <br />
   Step 3: npm i (모듈 다운로드)
+  <br />
   Step 4: 입맛대로 코드 뜯고 즐기셈
+  <br />
   Step 5: npm run buildstart 치면 빌드하고 실행됩니다.
-
+  <br />
   (실행될 때 사용될 명령어는 package.json 안의 scripts/start 부분에 적혀있습니다. 맘대로 수정하세요 )
 </h3>
