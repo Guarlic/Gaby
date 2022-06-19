@@ -2,17 +2,17 @@
 // #region import/declare
 // 임포트
 import {
-	Client,
-	Intents,
-	Message,
-	ActivityOptions,
-	Interaction,
+  Client,
+  Intents,
+  Message,
+  ActivityOptions,
+  Interaction,
 } from 'discord.js';
 import CommandBundle from '../Commands/CommandBundle.js';
 import logger from '../Utils/Logger.js';
 
 export const client = new Client({
-	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
 // #endregion
@@ -23,7 +23,7 @@ export const client = new Client({
  * 봇 스타트 함수
  */
 export async function Start() {
-	logger.info(`가비 has started.`);
+  logger.info(`가비 has started.`);
 }
 
 /**
@@ -57,7 +57,7 @@ export async function InterAcRecv(interaction: Interaction) {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function ErrorInMsgProcess(msg: Message, err: any) {
-	msg.reply(`Error Occured While Progress \n Error: ${err}`);
+  msg.reply(`Error Occured While Progress \n Error: ${err}`);
 }
 
 // #endregion
