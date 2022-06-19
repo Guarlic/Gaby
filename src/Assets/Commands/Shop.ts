@@ -1,5 +1,6 @@
 import { MessageEmbed, BaseCommandInteraction } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
+import { imageurl, color } from '../Utils/EmbedConfig.js';
 import ICommand from '../Interfaces/ICommand.js';
 
 const command: ICommand = {
@@ -8,8 +9,8 @@ const command: ICommand = {
     .setDescription('Check shop'),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
     const embed = new MessageEmbed()
-      .setAuthor('Gaby')
-      .setColor(0x47C83E)
+      .setAuthor('Gaby', imageurl)
+      .setColor(color)
       .setTitle('== Shop ==')
       .addFields(
         { name: 'First', value: 'Sword (100₩)', inline: true },
