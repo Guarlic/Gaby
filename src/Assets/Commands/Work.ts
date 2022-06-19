@@ -7,7 +7,7 @@ const command: ICommand = {
     .setName('work')
     .setDescription('Work!'),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
-    const arr: number[] = [ 80, 90, 100, 110, 120 ];
+    const arr: number[] = [ 80, 85, 90, 95, 100, 110, 115, 120, 200 ];
     const embed = new MessageEmbed()
       .setAuthor('Gaby')
       .setColor(0x47C83E)
