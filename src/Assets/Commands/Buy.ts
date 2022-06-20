@@ -5,11 +5,12 @@ import {
 } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { imageurl, color } from '../Utils/EmbedConfig.js';
+import ItemBundle from '../Minigame/Items/ItemBundle.js';
 import ICommand from '../Interfaces/ICommand.js';
 
-const sword = 100;
-const shield = 110;
-const pickace = 200;
+const sword = ItemBundle.find(item => item.name === 'Sword');
+const shield = ItemBundle.find(item => item.name === 'Shield');
+const pickaxe = ItemBundle.find(item => item.name === 'Pickaxe');
 
 const command: ICommand = {
   Builder: new SlashCommandBuilder()
@@ -20,28 +21,24 @@ const command: ICommand = {
         .setName('item')
         .setDescription('select your item')
         .addChoices(
-          { name: `Sword (${sword}₩)`, value: 'sword' },
-          { name: `Shield (${shield}₩)`, value: 'shield' },
-          { name: `Pickace (${pickace}₩)`, value: 'pickace' },
+          { name: `Sword (${sword!.price}₩)`, value: 'Sword' },
+          { name: `Shield (${shield!.price}₩)`, value: 'Shield' },
+          { name: `Pickace (${pickaxe!.price}₩)`, value: 'Pickace' },
         )
         .setRequired(true)
     ) as SlashCommandBuilder,
   SlashExecute: async (interaction: BaseCommandInteraction) => {
-    const item = (
+    const oItem = (
       interaction.options as CommandInteractionOptionResolver
     ).getString('item');
 
-    const bought = (
-      item === 'sword' ? sword :
-      item === 'shield' ? shield :
-      pickace
-    );
+    const bought = ItemBundle.find(item => item.name === oItem);
 
     const embed = new MessageEmbed()
       .setAuthor('Gaby', imageurl)
       .setColor(color)
       .setTitle('== Buy! ==')
-      .addField('you bought', `${item!} (${bought}₩)`);
+      .addField('you bought', `${oItem} (${bought!.price}₩)`);
     
     interaction.reply({ embeds: [embed] });
   },
