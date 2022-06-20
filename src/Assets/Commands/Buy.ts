@@ -1,7 +1,15 @@
-import { MessageEmbed, BaseCommandInteraction, CommandInteractionOptionResolver } from 'discord.js';
+import {
+  MessageEmbed,
+  BaseCommandInteraction,
+  CommandInteractionOptionResolver
+} from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { imageurl, color } from '../Utils/EmbedConfig.js';
 import ICommand from '../Interfaces/ICommand.js';
+
+const sword = 100;
+const shield = 110;
+const pickace = 200;
 
 const command: ICommand = {
   Builder: new SlashCommandBuilder()
@@ -12,8 +20,9 @@ const command: ICommand = {
         .setName('item')
         .setDescription('select your item')
         .addChoices(
-          { name: 'Sword (100₩)', value: 'sword' },
-          { name: 'Shield (110₩)', value: 'shield' },
+          { name: `Sword (${sword}₩)`, value: 'sword' },
+          { name: `Shield (${shield}₩)`, value: 'shield' },
+          { name: `Pickace (${pickace}₩)`, value: 'pickace' },
         )
         .setRequired(true)
     ) as SlashCommandBuilder,
@@ -22,11 +31,17 @@ const command: ICommand = {
       interaction.options as CommandInteractionOptionResolver
     ).getString('item');
 
+    const bought = (
+      item === 'sword' ? sword :
+      item === 'shield' ? shield :
+      pickace
+    );
+
     const embed = new MessageEmbed()
       .setAuthor('Gaby', imageurl)
       .setColor(color)
       .setTitle('== Buy! ==')
-      .addField('you bought', item!)
+      .addField('you bought', `${item!} (${bought}₩)`);
     
     interaction.reply({ embeds: [embed] });
   },

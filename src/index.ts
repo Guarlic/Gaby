@@ -16,7 +16,7 @@ BotEvent.client.on('interactionCreate', async (interaction: Interaction) => {
   BotEvent.InterAcRecv(interaction);
 });
 
-// 프로덕션 모드이면 뉴꺠미 토큰 사용
+// 프로덕션 모드이면 뉴가비 토큰 사용
 if (process.env.NODE_ENV === 'production') {
   BotEvent.client.login(process.env.TOKEN);
 } // 아니면 테스트토큰 사용
