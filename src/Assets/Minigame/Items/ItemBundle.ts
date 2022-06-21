@@ -5,6 +5,7 @@ const ItemBundle: IItem[] = [
   { name: 'StarSword', description: 'Star Sword', price: 320, level: 'unique', },
   { name: 'Shield', description: 'Normal Shield', price: 110, level: 'common', },
   { name: 'Pickaxe', description: 'Normal Pickaxe', price: 200, level: 'rare', },
+  { name: 'RandomBox', description: 'Random Box', price: 150, level: 'unkown', },
 ];
 
 export default ItemBundle;
