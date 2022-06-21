@@ -10,9 +10,9 @@ const Sword: IItem = {
 const StarSword: IItem = {
   name: 'StarSword',
   description: 'Star Sword',
-  price: 200,
-  level: 'rare',
-}
+  price: 320,
+  level: 'unique',
+};
 
 const Shield: IItem = {
   name: 'Shield',

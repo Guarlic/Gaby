@@ -39,15 +39,17 @@ export async function MsgRecv(msg: Message) {
 }
 
 export async function InterAcRecv(interaction: Interaction) {
-  if (!interaction.isCommand()) return;
+  if (!interaction.isCommand() && !interaction.isButton()) return;
 
-  const command = CommandBundle.find(value => value.Builder.name === interaction.commandName);
+  if (interaction.isCommand()) {
+    const command = CommandBundle.find(value => value.Builder.name === interaction.commandName);
 
-  logger.info(
-    `At Server <${interaction.guild?.name}> User [${interaction.user.username}] execute command: ${interaction.commandName}`
-  );
+    logger.info(
+      `At Server <${interaction.guild?.name}> User [${interaction.user.username}] execute command: ${interaction.commandName}`
+    );
 
-  if (command) command.SlashExecute(interaction);
+    if (command) command.SlashExecute(interaction);
+  }
 }
 
 /**

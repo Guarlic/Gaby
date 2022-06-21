@@ -39,7 +39,7 @@ const command: ICommand = {
     const embed = new MessageEmbed()
       .setAuthor('Gaby', imageurl)
       .setColor(color)
-      .setTitle('== Buy! ==')
+      .setTitle('== !Shop cart! ==')
       .addField('you bought', `${bought!.level} item; ${oItem} (${bought!.price}₩)`);
     
     interaction.reply({ embeds: [embed] });
