@@ -14,8 +14,9 @@ const command: ICommand = {
       .setTitle('== Shop ==')
       .addFields(
         { name: 'First', value: '**`Sword (100₩)`**', inline: true },
-        { name: 'Second', value: '**`Shield (110₩)`**', inline: true },
-        { name: 'Third', value: '**`Pickaxe (200₩)`**', inline: true },
+        { name: 'Second', value: '**`Star Sword (200₩)`**', inline: true },
+        { name: 'Third', value: '**`Shield (110₩)`**', inline: true },
+        { name: 'Fourth', value: '**`Pickaxe (200₩)`**', inline: true },
       );
 
     interaction.reply( { embeds: [embed] });

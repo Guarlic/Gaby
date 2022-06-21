@@ -9,6 +9,7 @@ import ItemBundle from '../Minigame/Items/ItemBundle.js';
 import ICommand from '../Interfaces/ICommand.js';
 
 const sword = ItemBundle.find(item => item.name === 'Sword');
+const starsword = ItemBundle.find(item => item.name === 'StarSword');
 const shield = ItemBundle.find(item => item.name === 'Shield');
 const pickaxe = ItemBundle.find(item => item.name === 'Pickaxe');
 
@@ -21,9 +22,10 @@ const command: ICommand = {
         .setName('item')
         .setDescription('select your item')
         .addChoices(
-          { name: `Sword (${sword!.price}₩)`, value: 'Sword' },
-          { name: `Shield (${shield!.price}₩)`, value: 'Shield' },
-          { name: `Pickace (${pickaxe!.price}₩)`, value: 'Pickace' },
+          { name: `Sword (${sword!.price}₩}) level: ${sword!.level}`, value: 'Sword' },
+          { name: `Star Sword (${starsword!.price}₩}) level: ${starsword!.level}`, value: 'StarSword' },
+          { name: `Shield (${shield!.price}₩) level: ${shield!.level}`, value: 'Shield' },
+          { name: `Pickace (${pickaxe!.price}₩) level: ${pickaxe!.level}`, value: 'Pickaxe' },
         )
         .setRequired(true)
     ) as SlashCommandBuilder,
@@ -38,7 +40,7 @@ const command: ICommand = {
       .setAuthor('Gaby', imageurl)
       .setColor(color)
       .setTitle('== Buy! ==')
-      .addField('you bought', `${oItem} (${bought!.price}₩)`);
+      .addField('you bought', `${bought!.level} item; ${oItem} (${bought!.price}₩)`);
     
     interaction.reply({ embeds: [embed] });
   },
