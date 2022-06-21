@@ -39,7 +39,10 @@ const command: ICommand = {
     let bought;
 
     if (oItem === 'Random') {
-      bought = ItemBundle[Math.floor(Math.random() * ItemBundle.length)];
+      while (true) {
+        bought = ItemBundle[Math.floor(Math.random() * ItemBundle.length)];
+        if (!(bought.name === 'RandomBox')) break;
+      }
 
       const embed = new MessageEmbed()
         .setAuthor('Gaby', imageurl)
