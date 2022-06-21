@@ -28,11 +28,19 @@ const Pickaxe: IItem = {
   level: 'rare',
 };
 
+const RandomBox: IItem = {
+  name: 'RandomBox',
+  description: 'Random Box',
+  price: 150,
+  level: 'unkown',
+};
+
 const ItemBundle: IItem[] = [
   Sword,
   StarSword,
   Shield,
-  Pickaxe
+  Pickaxe,
+  RandomBox,
 ];
 
 export default ItemBundle;
