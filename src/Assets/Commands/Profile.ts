@@ -49,7 +49,7 @@ const command: ICommand = {
 
     const attachment = new MessageAttachment(canvas.toBuffer('image/png'));
 
-    interaction.reply({ files: [attachment] });
+    interaction.reply({ content: '!Your Profile!', files: [attachment] });
   },
 };
 

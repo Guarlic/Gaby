@@ -7,6 +7,7 @@ import Debug from './Debug.js';
 import Inventory from './Inventory.js';
 import Regist from './Regist.js';
 import Profile from './Profile.js';
+import Ping from './Ping.js';
 
 const CommandBundle: ICommand[] = [
   Wallet,
@@ -17,6 +18,7 @@ const CommandBundle: ICommand[] = [
   Inventory,
   Regist,
   Profile,
+  Ping,
 ];
 
 export default CommandBundle;

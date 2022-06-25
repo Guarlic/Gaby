@@ -23,7 +23,7 @@ export const client = new Client({
  * 봇 스타트 함수
  */
 export async function Start() {
-  logger.info(`가비 has started.`);
+  logger.info(`Gaby has started.`);
 }
 
 /**
