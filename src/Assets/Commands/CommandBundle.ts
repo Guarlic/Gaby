@@ -6,6 +6,7 @@ import Buy from './Buy.js';
 import Debug from './Debug.js';
 import Inventory from './Inventory.js';
 import Regist from './Regist.js';
+import Profile from './Profile.js';
 
 const CommandBundle: ICommand[] = [
   Wallet,
@@ -15,6 +16,7 @@ const CommandBundle: ICommand[] = [
   Debug,
   Inventory,
   Regist,
+  Profile,
 ];
 
 export default CommandBundle;

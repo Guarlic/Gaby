@@ -12,7 +12,7 @@ const sword = ItemBundle.find(item => item.name === 'Sword');
 const starsword = ItemBundle.find(item => item.name === 'StarSword');
 const shield = ItemBundle.find(item => item.name === 'Shield');
 const pickaxe = ItemBundle.find(item => item.name === 'Pickaxe');
-const randombox = ItemBundle.find(item => item.name === 'RandomBox');
+const rrandombox = ItemBundle.find(item => item.name === 'RareRandomBox');
 
 const command: ICommand = {
   Builder: new SlashCommandBuilder()
@@ -27,7 +27,7 @@ const command: ICommand = {
           { name: `Star Sword (${starsword!.price}₩}) level: ${starsword!.level}`, value: 'StarSword' },
           { name: `Shield (${shield!.price}₩) level: ${shield!.level}`, value: 'Shield' },
           { name: `Pickace (${pickaxe!.price}₩) level: ${pickaxe!.level}`, value: 'Pickaxe' },
-          { name: `RandomBox (${randombox!.price}₩) level: ${randombox!.level}`, value: 'Random' },
+          { name: `Rare Item RandomBox (${rrandombox!.price}₩) level: ${rrandombox!.level}`, value: 'RRandom' },
         )
         .setRequired(true)
     ) as SlashCommandBuilder,
@@ -38,17 +38,17 @@ const command: ICommand = {
 
     let bought;
 
-    if (oItem === 'Random') {
+    if (oItem === 'RRandom') {
       while (true) {
         bought = ItemBundle[Math.floor(Math.random() * ItemBundle.length)];
-        if (!(bought.name === 'RandomBox')) break;
+        if (bought.name !== 'RareRandomBox') break;
       }
 
       const embed = new MessageEmbed()
         .setAuthor('Gaby', imageurl)
         .setColor(color)
         .setTitle('== !Shop cart! ==')
-        .addField('you bought', `(RandomBox : 150₩)\n${bought.level} item; ${bought.name} (${bought.price}₩)`);
+        .addField('you bought', `(RareRandomBox : 150₩)\n${bought.level} item; ${bought.name} (${bought.price}₩)`);
       
       interaction.reply({ embeds: [embed] });
       return;
