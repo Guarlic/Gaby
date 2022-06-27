@@ -26,13 +26,7 @@ const command: ICommand = {
     context.strokeStyle = '#0xBDBDBD';
     context.strokeRect(0, 0, canvas.width, canvas.height);
 
-    const { body } = await request(interaction.user.displayAvatarURL({ format: 'jpg' }));
-    const avatar = new Canvas.Image();
-    avatar.src = Buffer.from(await body.arrayBuffer());
-
-    context.drawImage(avatar, 30, 30, 250, 250);
-
-    context.font = '60px sans-serif';
+    context.font = '60px Maplestory';
     context.fillStyle = '#0xBDBDBD';
     context.fillText(
       `${interaction.user.username}#${interaction.user.discriminator}`,
@@ -40,12 +34,23 @@ const command: ICommand = {
       canvas.height / 1.8
     );
 
-    context.font = '30px sans-serif';
+    context.font = '30px Maplestory';
     context.fillText(
       `id: ${interaction.user.id}`,
       canvas.width / 2.5,
       canvas.height / 3
     );
+
+    context.beginPath();
+    context.arc(152, 152, 120, 0, Math.PI * 2, true);
+    context.closePath();
+    context.clip();
+
+    const { body } = await request(interaction.user.displayAvatarURL({ format: 'jpg' }));
+    const avatar = new Canvas.Image();
+    avatar.src = Buffer.from(await body.arrayBuffer());
+
+    context.drawImage(avatar, 30, 30, 250, 250);
 
     const attachment = new MessageAttachment(canvas.toBuffer('image/png'));
 

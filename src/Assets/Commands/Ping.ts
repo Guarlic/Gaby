@@ -13,7 +13,8 @@ const command: ICommand = {
       .setAuthor('Gaby', imageurl)
       .setColor(color)
       .setTitle('**🏓 Pong!**')
-      .setDescription(`${client.ws.ping}ms`);
+      .setDescription(`${client.ws.ping}ms`)
+      .setFooter('뭐 이 짜슥들아 핑 뭐 문제있냐? ㅡㅡ');
 
     interaction.reply({ embeds: [embed] });
   },
