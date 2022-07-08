@@ -57,7 +57,7 @@ export async function InterAcRecv(interaction: Interaction) {
     const command = CommandBundle.find(value => value.Builder.name === interaction.commandName);
 
     logger.info(
-      `At Server <${interaction.guild?.name}> User [${interaction.user.username}] execute command: ${interaction.commandName}`
+      `At Server <${interaction.guild?.name}> User [${interaction.user.username}] executed command: ${interaction.commandName}`
     );
 
     if (command) command.SlashExecute(interaction);
