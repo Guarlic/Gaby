@@ -15,8 +15,6 @@ export const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
-// #endregion
-
 // #region 봇 이벤트 함수
 
 /**
@@ -24,6 +22,20 @@ export const client = new Client({
  */
 export async function Start() {
   logger.info(`Gaby has started.`);
+
+  setInterval(() => {
+    const latency = client.ws.ping;
+
+    const activitylist: ActivityOptions[] = [
+      { name: `${latency}ms 로 서비스 제공`, type: 'PLAYING' },
+      { name: `${client.guilds.cache.size}개의 서버에서 함께`, type: 'PLAYING' },
+      { name: '여러분의 목소리를', type: 'LISTENING' },
+    ];
+
+    client.user?.setActivity(
+      activitylist[Math.floor(Math.random() * activitylist.length)]
+    );
+  }, 5000);
 }
 
 /**

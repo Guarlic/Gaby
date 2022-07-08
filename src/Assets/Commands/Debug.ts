@@ -19,6 +19,7 @@ const command: ICommand = {
         { name: 'Guild Name', value: `\`${interaction.guild?.name}\``, inline: true},
         { name: 'User Name', value: `\`${interaction.user.username}\``, inline: true },
         { name: 'User Discriminator', value: `\`${interaction.user.discriminator}\``, inline: true },
+        { name: 'Client ID', value: `\`${process.env.CLIENTID}\``, inline: true },
       );
 
     interaction.reply({ embeds: [embed], ephemeral: true});
