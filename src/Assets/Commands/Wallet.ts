@@ -35,7 +35,9 @@ const command: ICommand = {
       return interaction.reply({ embeds: [embed] });
     }
 
-    embed = embed.setDescription('Your wallet');
+    embed = embed.setDescription(
+      `You#${interaction.user.discriminator}'s wallet`
+    );
 
     interaction.reply({ embeds: [embed] });
   },
