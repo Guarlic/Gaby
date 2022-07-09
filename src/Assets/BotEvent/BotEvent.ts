@@ -9,7 +9,6 @@ import {
   Interaction,
 } from 'discord.js';
 import InterAcRecvFunc from './InterAcRecv.js';
-import CommandBundle from '../Commands/CommandBundle.js';
 import logger from '../Utils/Logger.js';
 
 export const client = new Client({
