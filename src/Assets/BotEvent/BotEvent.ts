@@ -8,6 +8,7 @@ import {
   ActivityOptions,
   Interaction,
 } from 'discord.js';
+import InterAcRecvFunc from './InterAcRecv.js';
 import CommandBundle from '../Commands/CommandBundle.js';
 import logger from '../Utils/Logger.js';
 
@@ -51,17 +52,7 @@ export async function MsgRecv(msg: Message) {
 }
 
 export async function InterAcRecv(interaction: Interaction) {
-  if (!interaction.isCommand() && !interaction.isButton()) return;
-
-  if (interaction.isCommand()) {
-    const command = CommandBundle.find(value => value.Builder.name === interaction.commandName);
-
-    logger.info(
-      `At Server <${interaction.guild?.name}> User [${interaction.user.username}] executed command: ${interaction.commandName}`
-    );
-
-    if (command) command.SlashExecute(interaction);
-  }
+  InterAcRecvFunc(interaction);
 }
 
 /**
