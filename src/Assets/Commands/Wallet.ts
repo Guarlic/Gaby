@@ -22,7 +22,7 @@ const command: ICommand = {
       interaction.options as CommandInteractionOptionResolver
     ).getUser('user');
 
-    let embed = new MessageEmbed()
+    const embed = new MessageEmbed()
       .setAuthor('Gaby', imageurl)
       .setColor(color)
       .setTitle('Wallet')
