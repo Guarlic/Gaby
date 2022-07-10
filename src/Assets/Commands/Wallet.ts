@@ -25,7 +25,7 @@ const command: ICommand = {
     let embed = new MessageEmbed()
       .setAuthor('Gaby', imageurl)
       .setColor(color)
-      .setTitle('Wallet')
+      .setTitle('Wallet');
 
     if (user && user.id !== interaction.user.id) {
       embed = embed.setDescription(
