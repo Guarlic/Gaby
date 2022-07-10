@@ -26,19 +26,12 @@ const command: ICommand = {
       .setAuthor('Gaby', imageurl)
       .setColor(color)
       .setTitle('Wallet')
+      .setDescription(
+        user && user.id !== interaction.user.id
+        ? `${user.username}#${user.discriminator}'s wallet`
+        : `너님#${interaction.user.discriminator}'s wallet`
+      )
       .setFooter('어라랏.. 텅장?');
-
-    if (user && user.id !== interaction.user.id) {
-      embed = embed.setDescription(
-        `${user.username}#${user.discriminator}'s wallet`
-      );
-
-      return interaction.reply({ embeds: [embed] });
-    }
-
-    embed = embed.setDescription(
-      `You#${interaction.user.discriminator}'s wallet`
-    );
 
     interaction.reply({ embeds: [embed] });
   },
