@@ -22,12 +22,7 @@ const ItemBundle: IItem[] = [
   {
     name: 'Pickaxe',
     description:'Normal Pickaxe',
-    price: 200,level: 'rare',
-  },
-  {
-    name: 'RareRandomBox',
-    description: 'Rare Item Random Box',
-    price: 150,
+    price: 200,
     level: 'rare',
   },
 ];

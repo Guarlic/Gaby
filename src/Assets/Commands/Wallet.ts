@@ -5,7 +5,10 @@ import {
 } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { imageurl, color } from '../Utils/EmbedConfig.js';
+import { UserModel } from '../DataBase/UserSchema.js';
+import logger from '../Utils/Logger.js';
 import ICommand from '../Interfaces/ICommand.js';
+import * as DBManager from '../DataBase/DBManager.js';
 
 const command: ICommand = {
   Builder: new SlashCommandBuilder()
@@ -22,6 +25,15 @@ const command: ICommand = {
       interaction.options as CommandInteractionOptionResolver
     ).getUser('user');
 
+    const id = user ? user.id : interaction.user?.id;
+    const data = await UserModel.findOne({ id: id });
+
+    if (!data) {
+      interaction.reply('걘 가입을 안했어!');
+
+      return;
+    }
+
     const embed = new MessageEmbed()
       .setAuthor('Gaby', imageurl)
       .setColor(color)
@@ -31,7 +43,9 @@ const command: ICommand = {
         ? `${user.username}#${user.discriminator}'s wallet`
         : `너님#${interaction.user.discriminator}'s wallet`
       )
-      .setFooter('어라랏.. 텅장?');
+      .setFooter(
+        `${data.money ? data.money : '어라랏... 텅장..? (글썽)'}`
+      );
 
     interaction.reply({ embeds: [embed] });
   },

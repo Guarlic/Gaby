@@ -10,6 +10,7 @@ import {
 } from 'discord.js';
 import InterAcRecvFunc from './InterAcRecv.js';
 import logger from '../Utils/Logger.js';
+import DBConnect from '../DataBase/DBManager.js';
 
 export const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
@@ -22,6 +23,7 @@ export const client = new Client({
  */
 export async function Start() {
   logger.info(`Gaby has started.`);
+  await DBConnect();
 
   setInterval(() => {
     const latency = client.ws.ping;

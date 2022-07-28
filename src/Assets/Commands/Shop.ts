@@ -24,7 +24,6 @@ const command: ICommand = {
         { name: 'Second', value: `**\`Star Sword (${starsword!.price}₩)\`**`, inline: true },
         { name: 'Third', value: `**\`Shield (${shield!.price}₩)\`**`, inline: true },
         { name: 'Fourth', value: `**\`Pickaxe (${pickaxe!.price}₩)\`**`, inline: true },
-        { name: 'Fifth', value: `**\`Rare RandomBox (${rrandombox!.price})₩)\`**`, inline: true },
       );
 
     interaction.reply( { embeds: [embed] });
