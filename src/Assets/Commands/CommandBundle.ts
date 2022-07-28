@@ -10,6 +10,7 @@ import Profile from './Profile.js';
 import Ping from './Ping.js';
 import Upgrade from './Upgrade.js';
 import Secession from './Secession.js';
+import Sell from './Sell.js';
 
 const CommandBundle: ICommand[] = [
   Wallet,
@@ -23,6 +24,7 @@ const CommandBundle: ICommand[] = [
   Ping,
   Upgrade,
   Secession,
+  Sell,
 ];
 
 export default CommandBundle;

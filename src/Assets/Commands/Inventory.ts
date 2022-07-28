@@ -3,7 +3,6 @@ import {
   BaseCommandInteraction,
   CommandInteractionOptionResolver
 } from 'discord.js';
-  
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { imageurl, color } from '../Utils/EmbedConfig.js';
 import { UserModel } from '../DataBase/UserSchema.js';
