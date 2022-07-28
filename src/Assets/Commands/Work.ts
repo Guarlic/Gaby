@@ -25,7 +25,7 @@ const command: ICommand = {
         .setColor(color)
         .setTitle('Work')
         .setDescription(
-          `you earned money: ${money}`
+          `you earned money: ${money}₩`
         );
 
       interaction.reply({ embeds: [embed] });

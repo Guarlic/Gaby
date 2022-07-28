@@ -8,9 +8,11 @@ import Inventory from './Inventory.js';
 import Regist from './Regist.js';
 import Profile from './Profile.js';
 import Ping from './Ping.js';
-import Upgrade from './Upgrade.js';
 import Secession from './Secession.js';
 import Sell from './Sell.js';
+import SelectClass from './SelectClass.js';
+import CheckClass from './CheckClass.js';
+import RemoveClass from './RemoveClass.js';
 
 const CommandBundle: ICommand[] = [
   Wallet,
@@ -22,9 +24,11 @@ const CommandBundle: ICommand[] = [
   Regist,
   Profile,
   Ping,
-  Upgrade,
   Secession,
   Sell,
+  SelectClass,
+  CheckClass,
+  RemoveClass,
 ];
 
 export default CommandBundle;

@@ -44,7 +44,7 @@ const command: ICommand = {
         : `너님#${interaction.user.discriminator}'s wallet`
       )
       .setFooter(
-        `${data.money ? data.money : '어라랏... 텅장..? (글썽)'}`
+        `${data.money ? `${data.money}₩` : '어라랏... 텅장..? (글썽)'}`
       );
 
     interaction.reply({ embeds: [embed] });

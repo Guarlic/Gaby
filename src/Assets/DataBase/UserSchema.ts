@@ -9,6 +9,9 @@ export class UserClass {
   @prop({ required: true, default: 0 })
   public money!: number;
 
+  @prop({ required: false })
+  public Class?: string;
+
   // json
   @prop({ required: true, default: 
     `
