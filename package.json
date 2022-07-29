@@ -1,7 +1,7 @@
 {
-  "name": "tsbottemp",
-  "version": "1.0.0",
-  "description": "",
+  "name": "newgaby",
+  "version": "0.2.0",
+  "description": "NewGaby Bot",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -12,7 +12,7 @@
     "execute": "rm -rf dist && tsc --build && node dist/deploy-commands.js && node dist/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sojak Studio",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.17.0",
