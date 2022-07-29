@@ -37,10 +37,10 @@ const command: ICommand = {
     const Class = ClassBundle.find(value => value.name === oClass);
 
     // 세이브~
-    data.Class = oClass!;
+    data.Class = Class!.name;
     data.save();
 
-    interaction.reply(`성공적으로 클래스를 '${data.Class}' (으)로 바꿨어요!`);
+    interaction.reply(`성공적으로 클래스를 '${Class!.name}' (으)로 바꿨어요!`);
   },
 };
 
