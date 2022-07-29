@@ -16,7 +16,7 @@ const command: ICommand = {
       return;
     }
 
-    await UserModel.deleteOne({ iManyd: interaction.user?.id });
+    await UserModel.deleteOne({ id: interaction.user?.id });
     interaction.reply('탈퇴 성공!');
   }
 }
