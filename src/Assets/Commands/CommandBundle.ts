@@ -10,7 +10,7 @@ import Profile from './Profile.js';
 import Ping from './Ping.js';
 import Secession from './Secession.js';
 import Sell from './Sell.js';
-import SelectClass from './SelectClass.js';
+import SetClass from './SetClass.js';
 import CheckClass from './CheckClass.js';
 import RemoveClass from './RemoveClass.js';
 
@@ -26,7 +26,7 @@ const CommandBundle: ICommand[] = [
   Ping,
   Secession,
   Sell,
-  SelectClass,
+  SetClass,
   CheckClass,
   RemoveClass,
 ];

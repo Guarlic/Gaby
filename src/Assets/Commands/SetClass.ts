@@ -15,6 +15,11 @@ const command: ICommand = {
       option
         .setName('classname')
         .setDescription('insert class name')
+        .addChoices(
+          { name: 'Knight', value: 'Knight' },
+          { name: 'Tanker', value: 'Tanker' },
+        )
+        .setRequired(true)
     ) as SlashCommandBuilder,
   SlashExecute: async (interaction: BaseCommandInteraction) => {
     const data = await UserModel.findOne({ id: interaction.user?.id });
@@ -31,17 +36,11 @@ const command: ICommand = {
     const oClass = options.getString('classname');
     const Class = ClassBundle.find(value => value.name === oClass);
 
-    if (!Class) {
-      interaction.reply('저기.. 그런 클래스는 없는것 같은뎁쇼?');
-
-      return;
-    }
-
     // 세이브~
-    data.Class = Class.name;
+    data.Class = oClass!;
     data.save();
 
-    interaction.reply(`성공적으로 클래스를 '${Class.name}' (으)로 바꿨어요!`);
+    interaction.reply(`성공적으로 클래스를 '${data.Class}' (으)로 바꿨어요!`);
   },
 };
 
