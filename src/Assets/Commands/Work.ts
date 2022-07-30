@@ -14,25 +14,26 @@ const command: ICommand = {
 
     const data = await UserModel.findOne({ id: interaction.user?.id });
 
-    if (data) {
-      await UserModel.updateOne(
-        { id: interaction.user?.id },
-        { money: data.money + money }
+    if (!data) {
+      interaction.reply('가입 처 해라 ^^');
+
+      return;
+    }
+
+    await UserModel.updateOne(
+      { id: interaction.user?.id },
+      { money: data.money + money }
+    );
+
+    const embed = new MessageEmbed()
+      .setAuthor('Gaby', imageurl)
+      .setColor(color)
+      .setTitle('Work')
+      .setDescription(
+        `you earned money: ${money}₩`
       );
 
-      const embed = new MessageEmbed()
-        .setAuthor('Gaby', imageurl)
-        .setColor(color)
-        .setTitle('Work')
-        .setDescription(
-          `you earned money: ${money}₩`
-        );
-
-      interaction.reply({ embeds: [embed] });
-    }
-    else {
-      interaction.reply('가입 처 해라 ^^');
-    }
+    interaction.reply({ embeds: [embed] });
   },
 };
 
