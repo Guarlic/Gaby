@@ -7,10 +7,6 @@ import { UserModel } from '../DataBase/UserSchema.js';
 import ClassBundle from '../Minigame/Classes/ClassBundle.js';
 import ICommand from '../Interfaces/ICommand.js';
 
-const knight = ClassBundle.find(value => value.name === 'Knight');
-const tanker = ClassBundle.find(value => value.name === 'Tanker');
-const wizard = ClassBundle.find(value => value.name === 'Wizard');
-
 const command: ICommand = {
   Builder: new SlashCommandBuilder(),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
