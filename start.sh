@@ -1,3 +1,5 @@
+echo "프로그램 \"NewGaby\" (을)를 실행합니다."
+
 while :
 do
     npm run execute
