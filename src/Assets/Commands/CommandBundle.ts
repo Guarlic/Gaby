@@ -10,9 +10,7 @@ import Profile from './Profile.js';
 import Ping from './Ping.js';
 import Secession from './Secession.js';
 import Sell from './Sell.js';
-import SetClass from './SetClass.js';
-import CheckClass from './CheckClass.js';
-import RemoveClass from './RemoveClass.js';
+import Class from './Class.js';
 
 const CommandBundle: ICommand[] = [
   Wallet,
@@ -26,9 +24,7 @@ const CommandBundle: ICommand[] = [
   Ping,
   Secession,
   Sell,
-  SetClass,
-  CheckClass,
-  RemoveClass,
+  Class,
 ];
 
 export default CommandBundle;

@@ -5,13 +5,19 @@ const ClassBundle: IClass[] = [
     name: 'Knight',
     description: 'Normal Knight',
     attack: 100,
-    shield: 100
+    defence: 100,
   },
   {
     name: 'Tanker',
     description: 'Normal Tanker',
     attack: 50,
-    shield: 200,
+    defence: 200,
+  },
+  {
+    name: 'Wizard',
+    description: 'Normal Wizard',
+    attack: 45,
+    defence: 90,
   },
 ];
 

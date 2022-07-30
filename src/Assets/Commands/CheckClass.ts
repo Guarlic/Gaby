@@ -4,9 +4,7 @@ import { UserModel } from '../DataBase/UserSchema.js';
 import ICommand from '../Interfaces/ICommand.js';
 
 const command: ICommand = {
-  Builder: new SlashCommandBuilder()
-    .setName('checkclass')
-    .setDescription('Check your class'),
+  Builder: new SlashCommandBuilder(),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
     const data = await UserModel.findOne({ id: interaction.user?.id });
 

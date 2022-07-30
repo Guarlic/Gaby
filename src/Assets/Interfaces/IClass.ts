@@ -2,7 +2,7 @@ interface IClass {
   name: string;
   description: string;
   attack: number;
-  shield: number;
+  defence: number;
 }
 
 export default IClass;
