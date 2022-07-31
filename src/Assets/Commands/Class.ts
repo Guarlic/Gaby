@@ -4,9 +4,9 @@ import {
 } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import ClassBundle from '../Minigame/Classes/ClassBundle.js';
-import SetClass from './SetClass.js';
-import CheckClass from './CheckClass.js';
-import RemoveClass from './RemoveClass.js';
+import SetClassExecute from './Subcommands/SetClass.js';
+import CheckClassExecute from './Subcommands/CheckClass.js';
+import RemoveClassExecute from './Subcommands/RemoveClass.js';
 import ICommand from '../Interfaces/ICommand.js';
 
 const knight = ClassBundle.find(value => value.name === 'Knight');
@@ -48,9 +48,9 @@ const command: ICommand = {
 
     // 서브커맨드 마다 실행하기
     switch (options.getSubcommand()) {
-      case 'set': SetClass.SlashExecute(interaction); break;
-      case 'check': CheckClass.SlashExecute(interaction); break;
-      case 'remove': RemoveClass.SlashExecute(interaction); break;
+      case 'set': SetClassExecute(interaction); break;
+      case 'check': CheckClassExecute(interaction); break;
+      case 'remove': RemoveClassExecute(interaction); break;
     }
   },
 };
