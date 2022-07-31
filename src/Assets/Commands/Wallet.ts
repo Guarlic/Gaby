@@ -6,9 +6,7 @@ import {
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { imageurl, color } from '../Utils/EmbedConfig.js';
 import { UserModel } from '../DataBase/UserSchema.js';
-import logger from '../Utils/Logger.js';
 import ICommand from '../Interfaces/ICommand.js';
-import * as DBManager from '../DataBase/DBManager.js';
 
 const command: ICommand = {
   Builder: new SlashCommandBuilder()
@@ -24,6 +22,12 @@ const command: ICommand = {
     const user = (
       interaction.options as CommandInteractionOptionResolver
     ).getUser('user');
+
+    if (user && user!.bot) {
+      interaction.reply('그 유저는 봇입니다만 ㅡ.ㅡ');
+
+      return;
+    }
 
     const id = user ? user.id : interaction.user?.id;
     const data = await UserModel.findOne({ id: id });

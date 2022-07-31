@@ -11,6 +11,7 @@ import Ping from './Ping.js';
 import Secession from './Secession.js';
 import Sell from './Sell.js';
 import Class from './Class.js';
+import Money from './Money.js';
 
 const CommandBundle: ICommand[] = [
   Wallet,
@@ -25,6 +26,7 @@ const CommandBundle: ICommand[] = [
   Secession,
   Sell,
   Class,
+  Money,
 ];
 
 export default CommandBundle;

@@ -32,8 +32,8 @@ const command: ICommand = {
     )
     .addIntegerOption(option =>
       option
-        .setName('number')
-        .setDescription('number of item (default: 1)')
+        .setName('amount')
+        .setDescription('amount of item (default: 1)')
     ) as SlashCommandBuilder,
   SlashExecute: async (interaction: BaseCommandInteraction) => {
     const data = await UserModel.findOne({ id: interaction.user?.id });
@@ -47,12 +47,12 @@ const command: ICommand = {
 
     const options = interaction.options as CommandInteractionOptionResolver;
     const oItem = options.getString('item');
-    const onum = options.getInteger('number');
+    const onum = options.getInteger('amountber');
 
     const bought = ItemBundle.find(item => item.name === oItem);
-    const num = onum ? onum : 1;
+    const amount = onum ? onum : 1;
 
-    const arnum =
+    const aramount =
       oItem === 'Sword' ? 0 :
       oItem === 'StarSword' ? 1 :
       oItem === 'Shield' ? 2 :
@@ -61,19 +61,19 @@ const command: ICommand = {
     // 인벤토리 json 으로 불러오기
     const invjson = JSON.parse(data.inventory);
 
-    if (invjson[arnum].count - num < 0) {
+    if (invjson[aramount].count - amount < 0) {
       interaction.reply('삐빅- 아이템이 부족합니다.');
 
       return;
     }
 
-    invjson[arnum].count -= num;
+    invjson[aramount].count -= amount;
 
     // 인벤토리 json 으로 불러온거 다시 스트링으로 바꾸기
     const inv = JSON.stringify(invjson);
 
     // 돈, 아이템 계산
-    data.money += bought!.price * num;
+    data.money += bought!.price * amount;
     data.inventory = inv;
 
     data.save();
@@ -83,7 +83,7 @@ const command: ICommand = {
       .setColor(color)
       .setTitle('== !Client Receipt! ==')
       .addField('you sold', `${bought!.level} item; ${oItem} (${bought!.price}₩)`)
-      .setFooter(`num: ${num}`);
+      .setFooter(`amount: ${amount}`);
     
     interaction.reply({ embeds: [embed] });
   },
