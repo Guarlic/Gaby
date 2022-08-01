@@ -5,6 +5,7 @@ git add -A
 git commit -m $1
 
 if $1 == "v$2" :
+do
 
 git tag "v$2" -m "Version $2"
 git push origin --tags; git push sojak --tags;
