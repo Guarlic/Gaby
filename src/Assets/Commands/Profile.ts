@@ -16,7 +16,7 @@ const command: ICommand = {
     const canvas = Canvas.createCanvas(1200, 300);
     const context = canvas.getContext('2d');
 
-    const backgroundImage = await readFile('./src.png');
+    const backgroundImage = await readFile('./img/src.png');
     const background = new Canvas.Image();
 
     background.src = backgroundImage;
