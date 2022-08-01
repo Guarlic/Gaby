@@ -25,9 +25,10 @@ const execute = async (interaction: BaseCommandInteraction) => {
 
   const amount = options.getInteger('amount');
 
+  const userdata = UserModel.findOne({ id: interaction.user?.id });
   const targetdata = await UserModel.findOne({ id: target!.id });
 
-  if (!targetdata) {
+  if (!userdata || !targetdata) {
     interaction.reply('그 유저는 가입을 하지 않았어!');
 
     return;
