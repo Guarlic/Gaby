@@ -4,7 +4,7 @@ echo "커밋 메시지: $1\n"
 git add -A
 git commit -m $1
 
-if $1 == "v$2" :
+if ($1 == "v$2") :
 do
 
 git tag "v$2" -m "Version $2"
