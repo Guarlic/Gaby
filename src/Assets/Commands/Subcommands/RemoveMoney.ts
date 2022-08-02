@@ -29,7 +29,7 @@ const execute = async (interaction: BaseCommandInteraction) => {
   const targetdata = await UserModel.findOne({ id: target!.id });
 
   if (!userdata || !targetdata) {
-    interaction.reply('그 유저는 가입을 하지 않았어!');
+    interaction.reply('너 혹은 그 유저가 가입을 하지 않았어!');
 
     return;
   }
