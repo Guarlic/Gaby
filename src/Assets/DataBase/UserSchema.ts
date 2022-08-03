@@ -14,26 +14,9 @@ export class UserClass {
 
   // json
   @prop({ required: true, default: 
-    `
-    [
-      {
-        "itemname": "Sword",
-        "count": 0 
-      },
-      {
-        "itemname": "StarSword",
-        "count": 0
-      },
-      {
-        "itemname": "Shield",
-        "count": 0
-      },
-      {
-        "itemname": "Pickaxe",
-        "count": 0
-      }
-    ]
-    `
+`
+[{"itemname":"Sword","count":0},{"itemname":"StarSword","count":0},{"itemname":"Shield","count":0 }, {"itemname":"Pickaxe","count":0}]
+`
   })
   public inventory!: string;
 }
