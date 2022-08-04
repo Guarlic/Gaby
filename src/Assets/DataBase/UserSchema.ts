@@ -12,6 +12,12 @@ export class UserClass {
   @prop({ required: false })
   public Class?: string;
 
+  @prop({ required: true, default: 1 })
+  public level!: number;
+
+  @prop({ required: true, default: 0})
+  public exp!: number;
+
   // json
   @prop({ required: true, default: 
 `
