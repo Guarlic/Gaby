@@ -30,26 +30,32 @@ const command: ICommand = {
     const lastwork = await db.get(`work.${interaction.user?.id}`);
 
     if (lastwork && workcooldown - (Date.now() - Number(lastwork)) > 0) {
+      // 만약 일을 한 지 10초가 지나지 않았다면
       const lefttime = Math.floor((workcooldown - (Date.now() - Number(lastwork))) / 1000);
 
-      return interaction.reply(
-        {
+      return interaction.reply({
           content: `${lefttime}초 뒤에 재시도해주세요!`,
           ephemeral: true
-        }
-      );
+      });
     }
     else {
+      // 현재 시간 기록하기
       await db.set(`workbefore.${interaction.user?.id}`, Number(lastwork));
       await db.set(`work.${interaction.user?.id}`, Date.now());
     }
 
+    // 돈과 경험치 정산하기
     data.money += money;
     data.exp += exp;
 
+    let levelup: boolean = false;
+
+    // 레벨업
     if (data.exp >= data.level * 100) {
       data.exp -= data.level * 100;
       data.level++;
+
+      levelup = true;
     }
 
     data.save();
@@ -61,7 +67,9 @@ const command: ICommand = {
       .setDescription(
         `you earned money: ${money}₩`
       )
-      .setFooter(`and.. ${exp}xp..`);
+      .setFooter(
+        `and.. ${exp}xp.. ${levelup ? `\n(Levelup! ${data.level - 1} -> ${data.level})` : ''}`
+      );
 
     interaction.reply({ embeds: [embed] });
   },
