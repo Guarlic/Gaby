@@ -47,12 +47,12 @@ const command: ICommand = {
 
     const options = interaction.options as CommandInteractionOptionResolver;
     const oItem = options.getString('item');
-    const onum = options.getInteger('amountber');
+    const onum = options.getInteger('amount');
 
     const bought = ItemBundle.find(item => item.name === oItem);
     const amount = onum ? onum : 1;
 
-    const aramount =
+    const arnum =
       oItem === 'Sword' ? 0 :
       oItem === 'StarSword' ? 1 :
       oItem === 'Shield' ? 2 :
@@ -61,13 +61,13 @@ const command: ICommand = {
     // 인벤토리 json 으로 불러오기
     const invjson = JSON.parse(data.inventory);
 
-    if (invjson[aramount].count - amount < 0) {
+    if (invjson[arnum].count - amount < 0) {
       interaction.reply('삐빅- 아이템이 부족합니다.');
 
       return;
     }
 
-    invjson[aramount].count -= amount;
+    invjson[arnum].count -= amount;
 
     // 인벤토리 json 으로 불러온거 다시 스트링으로 바꾸기
     const inv = JSON.stringify(invjson);
