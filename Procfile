@@ -1,1 +1,1 @@
-worker: sh start.sh
+worker: npm run execute
