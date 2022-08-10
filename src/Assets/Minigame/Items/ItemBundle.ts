@@ -21,8 +21,14 @@ const ItemBundle: IItem[] = [
   },
   {
     name: 'Pickaxe',
-    description:'Normal Pickaxe',
+    description: 'Normal Pickaxe',
     price: 200,
+    level: 'rare',
+  },
+  {
+    name: 'Potion',
+    description: 'Normal Potion',
+    price: 150,
     level: 'rare',
   },
 ];

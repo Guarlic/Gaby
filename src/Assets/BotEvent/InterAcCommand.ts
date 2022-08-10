@@ -10,7 +10,10 @@ async function InterAcCommand(interaction: BaseCommandInteraction) {
   if (!command) return;
 
   logger.info(
-    `At Server <${interaction.guild?.name}> User [${interaction.user.username}] executed command: ${interaction.commandName}`
+`
+At Server <${interaction.guild?.name}>
+User [${interaction.user.username}]
+executed command: ${interaction.commandName}`
   );
 
   command.SlashExecute(interaction);

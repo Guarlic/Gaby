@@ -41,17 +41,28 @@ const command: ICommand = {
     const bought = ItemBundle.find(item => item.name === oItem);
     const amount = onum ? onum : 1;
 
+    const arnum =
+      oItem === 'Sword' ? 0 :
+      oItem === 'StarSword' ? 1 :
+      oItem === 'Shield' ? 2 :
+      oItem === 'Pickaxe' ? 3:
+      oItem === 'Potion' ? 4 :
+      null;
+
+    if (arnum === null) {
+      interaction.reply(
+`${oItem} 은 존재하지 않는 아이템입니다!
+<shop> 명령어를 사용하여 아이템 목록을 확인해주세요.`
+      );
+
+      return;
+    }
+
     if (data.money - bought!.price * amount < 0) {
       interaction.reply('삐빅- 잔액이 부족합니다.');
 
       return;
     }
-
-    const arnum =
-      oItem === 'Sword' ? 0 :
-      oItem === 'StarSword' ? 1 :
-      oItem === 'Shield' ? 2 :
-      3;
 
     // 인벤토리 json으로 불러오기
     const invjson = JSON.parse(data.inventory);
