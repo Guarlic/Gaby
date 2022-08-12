@@ -1,6 +1,8 @@
 .env
 .DS_Store
+.yarn
 node_modules
 dist
 logs
 json.sqlite
+.pnp.*
