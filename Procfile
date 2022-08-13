@@ -1,1 +1,1 @@
-worker: npm run execute
+worker: yarn execute
