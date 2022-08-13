@@ -13,6 +13,7 @@ const sword = ItemBundle.find(item => item.name === 'Sword');
 const starsword = ItemBundle.find(item => item.name === 'StarSword');
 const shield = ItemBundle.find(item => item.name === 'Shield');
 const pickaxe = ItemBundle.find(item => item.name === 'Pickaxe');
+const potion = ItemBundle.find(item => item.name === 'Potion');
 
 const command: ICommand = {
   Builder: new SlashCommandBuilder()
@@ -27,6 +28,7 @@ const command: ICommand = {
           { name: `Star Sword (${starsword!.price}₩) level: ${starsword!.level}`, value: 'StarSword' },
           { name: `Shield (${shield!.price}₩) level: ${shield!.level}`, value: 'Shield' },
           { name: `Pickace (${pickaxe!.price}₩) level: ${pickaxe!.level}`, value: 'Pickaxe' },
+          { name: `Potion (${potion!.price}₩) level: ${potion!.level}`, value: 'Potion' },
         )
         .setRequired(true)
     )
@@ -56,7 +58,8 @@ const command: ICommand = {
       oItem === 'Sword' ? 0 :
       oItem === 'StarSword' ? 1 :
       oItem === 'Shield' ? 2 :
-      3;
+      oItem === 'Pickaxe' ? 3 :
+      4;
 
     // 인벤토리 json 으로 불러오기
     const invjson = JSON.parse(data.inventory);
