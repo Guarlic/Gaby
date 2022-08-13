@@ -13,15 +13,23 @@ CommandBundle.forEach(value => {
   commandArray.push(value.Builder);
 });
 
-if (process.env.TESTTOKEN !== undefined && process.env.CLIENTID !== undefined) {
+const token =
+  process.env.NODE_ENV === 'production' ? process.env.TOKEN :
+  process.env.TESTTOKEN;
+
+const clientid =
+  process.env.NODE_ENV === 'production' ? process.env.CLIENTID :
+  process.env.TESTCLIENTID;
+
+if (token !== undefined && clientid !== undefined) {
   logger.info(
-    `TOKEN: ${process.env.TESTTOKEN}, CLIENTID: ${process.env.CLIENTID}`,
+    `TOKEN: ${token}, CLIENTID: ${clientid}`,
   );
 
-  const rest = new REST({ version: '10' }).setToken(process.env.TESTTOKEN);
+  const rest = new REST({ version: '10' }).setToken(token);
 
   rest
-    .put(Routes.applicationCommands(process.env.CLIENTID), {
+    .put(Routes.applicationCommands(clientid), {
       body: commandArray,
     })
     .then(() =>
