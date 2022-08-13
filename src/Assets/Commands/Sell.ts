@@ -46,7 +46,8 @@ const command: ICommand = {
       oItem === 'StarSword' ? 1 :
       oItem === 'Shield' ? 2 :
       oItem === 'Pickaxe' ? 3 :
-      4;
+      oItem === 'Potion' ? 4 :
+      null;
 
 
     if (arnum === null) {

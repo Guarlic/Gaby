@@ -35,7 +35,8 @@ const command: ICommand = {
     let inv = '';
 
     for (var i = 0; i < invjson.length; i++) {
-      inv += `${invjson[i].itemname} : ${invjson[i].count}\n`;
+      inv +=
+        `${invjson[i].itemname} : ${invjson[i].count} (level: ${invjson[i].level})\n`;
     }
 
     const embed = new MessageEmbed()
