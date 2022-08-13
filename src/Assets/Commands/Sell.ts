@@ -9,12 +9,6 @@ import { UserModel } from '../DataBase/UserSchema.js';
 import ItemBundle from '../Minigame/Items/ItemBundle.js';
 import ICommand from '../Interfaces/ICommand.js';
 
-const sword = ItemBundle.find(item => item.name === 'Sword');
-const starsword = ItemBundle.find(item => item.name === 'StarSword');
-const shield = ItemBundle.find(item => item.name === 'Shield');
-const pickaxe = ItemBundle.find(item => item.name === 'Pickaxe');
-const potion = ItemBundle.find(item => item.name === 'Potion');
-
 const command: ICommand = {
   Builder: new SlashCommandBuilder()
     .setName('sell')
@@ -23,13 +17,6 @@ const command: ICommand = {
       option
         .setName('item')
         .setDescription('select your item')
-        .addChoices(
-          { name: `Sword (${sword!.price}₩) level: ${sword!.level}`, value: 'Sword' },
-          { name: `Star Sword (${starsword!.price}₩) level: ${starsword!.level}`, value: 'StarSword' },
-          { name: `Shield (${shield!.price}₩) level: ${shield!.level}`, value: 'Shield' },
-          { name: `Pickace (${pickaxe!.price}₩) level: ${pickaxe!.level}`, value: 'Pickaxe' },
-          { name: `Potion (${potion!.price}₩) level: ${potion!.level}`, value: 'Potion' },
-        )
         .setRequired(true)
     )
     .addIntegerOption(option =>
@@ -60,6 +47,16 @@ const command: ICommand = {
       oItem === 'Shield' ? 2 :
       oItem === 'Pickaxe' ? 3 :
       4;
+
+
+    if (arnum === null) {
+      interaction.reply(
+`${oItem} 은 존재하지 않는 아이템입니다!
+<shop> 명령어를 사용하여 아이템 목록을 확인해주세요.`
+      );
+
+      return;
+    }
 
     // 인벤토리 json 으로 불러오기
     const invjson = JSON.parse(data.inventory);
