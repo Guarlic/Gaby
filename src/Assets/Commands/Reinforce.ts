@@ -68,7 +68,7 @@ const command: ICommand = {
       0;
 
     // 강화 성공? 실패??
-    const percent = Math.floor((invlevel + 100) / invlevel) - bonus / invlevel;
+    const percent = Math.floor((invlevel + 100) / invlevel - bonus / invlevel);
     const num = Math.floor(Math.random() * 100) + 1;
 
     // 성공
@@ -86,6 +86,13 @@ const command: ICommand = {
 
       return;
     }
+
+    invjson[arnum].count--;
+    
+    const inv = JSON.stringify(invjson);
+    data.inventory = inv;
+
+    data.save();
 
     // 실패
     interaction.reply({
