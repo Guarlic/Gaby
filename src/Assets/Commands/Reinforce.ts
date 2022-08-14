@@ -9,12 +9,12 @@ import ICommand from '../Interfaces/ICommand.js';
 
 const command: ICommand = {
   Builder: new SlashCommandBuilder()
-    .setName('upgrade')
-    .setDescription('Upgrade an item')
+    .setName('reinforce')
+    .setDescription('reinforce an item')
     .addStringOption(option =>
       option
         .setName('item')
-        .setDescription('Item you want to upgrade')
+        .setDescription('Item you want to reinforce')
         .setRequired(true)
     ) as SlashCommandBuilder,
   SlashExecute: async (interaction: BaseCommandInteraction) => {
@@ -59,8 +59,16 @@ const command: ICommand = {
 
     const invlevel = invjson[arnum].level;
 
+    const bonus =
+      item!.level === 'common' ? 1 :
+      item!.level === 'rare' ? 2 :
+      item!.level === 'epic' ? 3 :
+      item!.level === 'unique' ? 4 :
+      item!.level === 'legend' ? 5 :
+      0;
+
     // 강화 성공? 실패??
-    const percent = Math.floor((invlevel + 100) / invlevel);
+    const percent = Math.floor((invlevel + 100) / invlevel) - bonus / invlevel;
     const num = Math.floor(Math.random() * 100) + 1;
 
     // 성공
@@ -71,13 +79,19 @@ const command: ICommand = {
       data.inventory = inv;
       data.save();
 
-      interaction.reply('Upgrade Complete! (Success)');
+      interaction.reply({
+        content: 'Reinforce Complete! (Success)',
+        files: ['./img/success.png']
+      });
 
       return;
     }
 
     // 실패
-    interaction.reply('Upgrade Complete! (Failure)');
+    interaction.reply({
+      content: 'Reinforce Complete! (Failed)',
+      files: ['./img/failed.png']
+    });
   },
 };
 

@@ -12,7 +12,7 @@ import Secession from './Secession.js';
 import Sell from './Sell.js';
 import Class from './Class.js';
 import Money from './Money.js';
-import Upgrade from './Upgrade.js';
+import Reinforce from './Reinforce.js';
 
 const CommandBundle: ICommand[] = [
   Wallet,
@@ -28,7 +28,7 @@ const CommandBundle: ICommand[] = [
   Sell,
   Class,
   Money,
-  Upgrade,
+  Reinforce,
 ];
 
 export default CommandBundle;
