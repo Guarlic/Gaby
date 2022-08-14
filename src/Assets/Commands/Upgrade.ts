@@ -54,6 +54,7 @@ const command: ICommand = {
       return;
     }
 
+    // 인벤토리 json으로 불러오기
     const invjson = JSON.parse(data.inventory);
 
     if (!invjson[arnum].count) {
@@ -64,9 +65,11 @@ const command: ICommand = {
 
     const invlevel = invjson[arnum].level;
 
+    // 강화 성공? 실패??
     const percent = Math.floor((invlevel + 100) / invlevel);
     const num = Math.floor(Math.random() * 100) + 1;
 
+    // 성공
     if (num <= percent) {
       invjson[arnum].level++;
 
@@ -79,6 +82,7 @@ const command: ICommand = {
       return;
     }
 
+    // 실패
     interaction.reply('Upgrade Complete! (Failure)');
   },
 };
