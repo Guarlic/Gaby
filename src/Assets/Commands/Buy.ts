@@ -41,13 +41,7 @@ const command: ICommand = {
     const bought = ItemBundle.find(item => item.name === oItem);
     const amount = onum ? onum : 1;
 
-    const arnum =
-      oItem === 'Sword' ? 0 :
-      oItem === 'StarSword' ? 1 :
-      oItem === 'Shield' ? 2 :
-      oItem === 'Pickaxe' ? 3:
-      oItem === 'Potion' ? 4 :
-      null;
+    const arnum = bought!.id;
 
     if (arnum === null) {
       interaction.reply(

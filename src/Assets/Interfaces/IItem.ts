@@ -3,6 +3,7 @@ interface IItem {
   description: string;
   price: number;
   level: string;
+  id: number;
 }
 
 export default IItem;

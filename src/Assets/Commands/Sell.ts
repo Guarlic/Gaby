@@ -38,17 +38,10 @@ const command: ICommand = {
     const oItem = options.getString('item');
     const onum = options.getInteger('amount');
 
-    const bought = ItemBundle.find(item => item.name === oItem);
+    const sold = ItemBundle.find(item => item.name === oItem);
     const amount = onum ? onum : 1;
 
-    const arnum =
-      oItem === 'Sword' ? 0 :
-      oItem === 'StarSword' ? 1 :
-      oItem === 'Shield' ? 2 :
-      oItem === 'Pickaxe' ? 3 :
-      oItem === 'Potion' ? 4 :
-      null;
-
+    const arnum = sold!.id;
 
     if (arnum === null) {
       interaction.reply(
@@ -74,7 +67,7 @@ const command: ICommand = {
     const inv = JSON.stringify(invjson);
 
     // 돈, 아이템 계산
-    data.money += bought!.price * amount;
+    data.money += sold!.price * amount;
     data.inventory = inv;
 
     data.save();
@@ -83,7 +76,7 @@ const command: ICommand = {
       .setAuthor('Gaby', imageurl)
       .setColor(color)
       .setTitle('== !Client Receipt! ==')
-      .addField('you sold', `${bought!.level} item; ${oItem} (${bought!.price}₩)`)
+      .addField('you sold', `${sold!.level} item; ${oItem} (${sold!.price}₩)`)
       .setFooter(`amount: ${amount}`);
     
     interaction.reply({ embeds: [embed] });
