@@ -13,6 +13,7 @@ import Sell from './Sell.js';
 import Class from './Class.js';
 import Money from './Money.js';
 import Reinforce from './Reinforce.js';
+import UseCount from './UseCount.js';
 
 const CommandBundle: ICommand[] = [
   Wallet,
@@ -29,6 +30,7 @@ const CommandBundle: ICommand[] = [
   Class,
   Money,
   Reinforce,
+  UseCount,
 ];
 
 export default CommandBundle;

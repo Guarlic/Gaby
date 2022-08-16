@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@napi-rs/canvas", "npm:0.1.26"],\
             ["@typegoose/typegoose", "virtual:5d32afc524abb10748b41043a65ebbc38edb059d5bc96a842f706492a93a5f33cfb839d3e1e83208b3bc94f4e415dae7a90bff5cca12187f678ed23fb27b7909#npm:9.11.0"],\
             ["@types/mongoose", "npm:5.11.97"],\
+            ["@types/mysql", "npm:2.15.21"],\
             ["better-sqlite3", "npm:7.6.2"],\
             ["discord-api-types", "npm:0.33.5"],\
             ["discord.js", "npm:13.10.2"],\
@@ -49,6 +50,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:5d32afc524abb10748b41043a65ebbc38edb059d5bc96a842f706492a93a5f33cfb839d3e1e83208b3bc94f4e415dae7a90bff5cca12187f678ed23fb27b7909#npm:4.2.1"],\
             ["fs", "npm:0.0.1-security"],\
             ["mongoose", "npm:6.5.2"],\
+            ["mysql", "npm:2.18.1"],\
+            ["mysql-await", "npm:2.2.2"],\
             ["prettier", "npm:2.7.1"],\
             ["quick.db", "npm:9.0.6"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
@@ -433,6 +436,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/mysql", [\
+        ["npm:2.15.21", {\
+          "packageLocation": "./.yarn/cache/@types-mysql-npm-2.15.21-3ffb8ffe27-6f526e0183.zip/node_modules/@types/mysql/",\
+          "packageDependencies": [\
+            ["@types/mysql", "npm:2.15.21"],\
+            ["@types/node", "npm:18.7.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/node", [\
         ["npm:18.7.2", {\
           "packageLocation": "./.yarn/cache/@types-node-npm-18.7.2-8575dab8c2-422cf95dea.zip/node_modules/@types/node/",\
@@ -701,6 +714,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["bignumber.js", [\
+        ["npm:9.0.0", {\
+          "packageLocation": "./.yarn/cache/bignumber.js-npm-9.0.0-ce190bcd7c-51f37890bc.zip/node_modules/bignumber.js/",\
+          "packageDependencies": [\
+            ["bignumber.js", "npm:9.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["bindings", [\
         ["npm:1.5.0", {\
           "packageLocation": "./.yarn/cache/bindings-npm-1.5.0-77ce1d213c-65b6b48095.zip/node_modules/bindings/",\
@@ -965,6 +987,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/console-control-strings-npm-1.1.0-e3160e5275-8755d76787.zip/node_modules/console-control-strings/",\
           "packageDependencies": [\
             ["console-control-strings", "npm:1.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["core-util-is", [\
+        ["npm:1.0.3", {\
+          "packageLocation": "./.yarn/cache/core-util-is-npm-1.0.3-ca74b76c90-9de8597363.zip/node_modules/core-util-is/",\
+          "packageDependencies": [\
+            ["core-util-is", "npm:1.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2441,6 +2472,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["isarray", [\
+        ["npm:1.0.0", {\
+          "packageLocation": "./.yarn/cache/isarray-npm-1.0.0-db4f547720-f032df8e02.zip/node_modules/isarray/",\
+          "packageDependencies": [\
+            ["isarray", "npm:1.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["isexe", [\
         ["npm:2.0.0", {\
           "packageLocation": "./.yarn/cache/isexe-npm-2.0.0-b58870bd2e-26bf6c5480.zip/node_modules/isexe/",\
@@ -2887,6 +2927,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["mysql", [\
+        ["npm:2.18.1", {\
+          "packageLocation": "./.yarn/cache/mysql-npm-2.18.1-8fdb56201f-430dec8525.zip/node_modules/mysql/",\
+          "packageDependencies": [\
+            ["mysql", "npm:2.18.1"],\
+            ["bignumber.js", "npm:9.0.0"],\
+            ["readable-stream", "npm:2.3.7"],\
+            ["safe-buffer", "npm:5.1.2"],\
+            ["sqlstring", "npm:2.3.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["mysql-await", [\
+        ["npm:2.2.2", {\
+          "packageLocation": "./.yarn/cache/mysql-await-npm-2.2.2-3232ad8e1a-80edfe358e.zip/node_modules/mysql-await/",\
+          "packageDependencies": [\
+            ["mysql-await", "npm:2.2.2"],\
+            ["mysql", "npm:2.18.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["napi-build-utils", [\
         ["npm:1.0.2", {\
           "packageLocation": "./.yarn/cache/napi-build-utils-npm-1.0.2-892e4bba56-06c14271ee.zip/node_modules/napi-build-utils/",\
@@ -2924,6 +2987,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@napi-rs/canvas", "npm:0.1.26"],\
             ["@typegoose/typegoose", "virtual:5d32afc524abb10748b41043a65ebbc38edb059d5bc96a842f706492a93a5f33cfb839d3e1e83208b3bc94f4e415dae7a90bff5cca12187f678ed23fb27b7909#npm:9.11.0"],\
             ["@types/mongoose", "npm:5.11.97"],\
+            ["@types/mysql", "npm:2.15.21"],\
             ["better-sqlite3", "npm:7.6.2"],\
             ["discord-api-types", "npm:0.33.5"],\
             ["discord.js", "npm:13.10.2"],\
@@ -2935,6 +2999,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:5d32afc524abb10748b41043a65ebbc38edb059d5bc96a842f706492a93a5f33cfb839d3e1e83208b3bc94f4e415dae7a90bff5cca12187f678ed23fb27b7909#npm:4.2.1"],\
             ["fs", "npm:0.0.1-security"],\
             ["mongoose", "npm:6.5.2"],\
+            ["mysql", "npm:2.18.1"],\
+            ["mysql-await", "npm:2.2.2"],\
             ["prettier", "npm:2.7.1"],\
             ["quick.db", "npm:9.0.6"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
@@ -3262,6 +3328,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["process-nextick-args", [\
+        ["npm:2.0.1", {\
+          "packageLocation": "./.yarn/cache/process-nextick-args-npm-2.0.1-b8d7971609-1d38588e52.zip/node_modules/process-nextick-args/",\
+          "packageDependencies": [\
+            ["process-nextick-args", "npm:2.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["promise-inflight", [\
         ["npm:1.0.1", {\
           "packageLocation": "./.yarn/cache/promise-inflight-npm-1.0.1-5bb925afac-2274948309.zip/node_modules/promise-inflight/",\
@@ -3348,6 +3423,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["readable-stream", [\
+        ["npm:2.3.7", {\
+          "packageLocation": "./.yarn/cache/readable-stream-npm-2.3.7-77b22a9818-e4920cf754.zip/node_modules/readable-stream/",\
+          "packageDependencies": [\
+            ["readable-stream", "npm:2.3.7"],\
+            ["core-util-is", "npm:1.0.3"],\
+            ["inherits", "npm:2.0.4"],\
+            ["isarray", "npm:1.0.0"],\
+            ["process-nextick-args", "npm:2.0.1"],\
+            ["safe-buffer", "npm:5.1.2"],\
+            ["string_decoder", "npm:1.1.1"],\
+            ["util-deprecate", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:3.6.0", {\
           "packageLocation": "./.yarn/cache/readable-stream-npm-3.6.0-23a4a5eb56-d4ea81502d.zip/node_modules/readable-stream/",\
           "packageDependencies": [\
@@ -3449,6 +3538,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["safe-buffer", [\
+        ["npm:5.1.2", {\
+          "packageLocation": "./.yarn/cache/safe-buffer-npm-5.1.2-c27fedf6c4-f2f1f7943c.zip/node_modules/safe-buffer/",\
+          "packageDependencies": [\
+            ["safe-buffer", "npm:5.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:5.2.1", {\
           "packageLocation": "./.yarn/cache/safe-buffer-npm-5.2.1-3481c8aa9b-b99c4b41fd.zip/node_modules/safe-buffer/",\
           "packageDependencies": [\
@@ -3642,6 +3738,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["sqlstring", [\
+        ["npm:2.3.1", {\
+          "packageLocation": "./.yarn/cache/sqlstring-npm-2.3.1-2d4ffafe98-de4299cf9b.zip/node_modules/sqlstring/",\
+          "packageDependencies": [\
+            ["sqlstring", "npm:2.3.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["ssri", [\
         ["npm:9.0.1", {\
           "packageLocation": "./.yarn/cache/ssri-npm-9.0.1-33ce27f4f8-fb58f5e46b.zip/node_modules/ssri/",\
@@ -3698,6 +3803,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["string_decoder", [\
+        ["npm:1.1.1", {\
+          "packageLocation": "./.yarn/cache/string_decoder-npm-1.1.1-e46a6c1353-9ab7e56f9d.zip/node_modules/string_decoder/",\
+          "packageDependencies": [\
+            ["string_decoder", "npm:1.1.1"],\
+            ["safe-buffer", "npm:5.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:1.3.0", {\
           "packageLocation": "./.yarn/cache/string_decoder-npm-1.3.0-2422117fd0-8417646695.zip/node_modules/string_decoder/",\
           "packageDependencies": [\
