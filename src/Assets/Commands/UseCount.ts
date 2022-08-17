@@ -1,6 +1,7 @@
 import { BaseCommandInteraction } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { connection } from '../DataBase/MySqlManager.js';
+import { Query } from '../DataBase/MySqlManager.js';
+import logger from '../Utils/Logger.js';
 import ICommand from '../Interfaces/ICommand.js';
 
 const command: ICommand = {
@@ -8,13 +9,11 @@ const command: ICommand = {
     .setName('usecount')
     .setDescription('Usecount of NewGaby'),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
-    connection.query(
-      `select * from usecount where id = '${interaction.user?.id}'`,
-      (err, rows) => {
-        if (err) throw err;
-        interaction.reply(`usecount: ${rows[0].value}`);
-      }
+    const res = await Query(
+      `select * from usecount where id = '${interaction.user?.id}'`
     );
+
+    interaction.reply(`usecount: ${res[0].value}`);
   },
 };
 

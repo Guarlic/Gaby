@@ -1,6 +1,7 @@
 import { BaseCommandInteraction } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { UserModel } from '../DataBase/UserSchema.js';
+import { Query } from '../DataBase/MySqlManager.js';
 import ICommand from '../Interfaces/ICommand.js';
 
 const command: ICommand = {
@@ -17,6 +18,11 @@ const command: ICommand = {
     }
 
     await UserModel.deleteOne({ id: interaction.user?.id });
+
+    await Query(
+      `delete from usecount where id = '${interaction.user.id}';`
+    )
+
     interaction.reply('탈퇴 성공!');
   }
 }
