@@ -19,7 +19,7 @@ const command: ICommand = {
     const money = arr[Math.floor(Math.random() * arr.length)];
     const exp = xparr[Math.floor(Math.random() * xparr.length)];
 
-    const data = await UserModel.findOne({ id: interaction.user?.id });
+    const data = await UserModel.findOne({ id: interaction.user.id });
 
     if (!data) {
       interaction.reply('가입 처 해라 ^^');
@@ -28,7 +28,7 @@ const command: ICommand = {
     }
 
     const workcooldown = 10000;
-    const lastwork = await db.get(`work.${interaction.user?.id}`);
+    const lastwork = await db.get(`work.${interaction.user.id}`);
 
     if (lastwork && workcooldown - (Date.now() - Number(lastwork)) > 0) {
       // 만약 일을 한 지 10초가 지나지 않았다면
@@ -41,8 +41,8 @@ const command: ICommand = {
     }
     else {
       // 현재 시간 기록하기
-      await db.set(`workbefore.${interaction.user?.id}`, Number(lastwork));
-      await db.set(`work.${interaction.user?.id}`, Date.now());
+      await db.set(`workbefore.${interaction.user.id}`, Number(lastwork));
+      await db.set(`work.${interaction.user.id}`, Date.now());
     }
 
     // 돈과 경험치 정산하기

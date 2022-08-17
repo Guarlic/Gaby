@@ -5,14 +5,18 @@ import ICommand from '../Interfaces/ICommand.js';
 
 const command: ICommand = {
   Builder: new SlashCommandBuilder()
-    .setName('usecount')
-    .setDescription('Usecount of NewGaby'),
+    .setName('workcount')
+    .setDescription('Workcount of NewGaby'),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
-    const res = await Query(
-      `select * from usecount where id = '${interaction.user.id}'`
+    await Query(
+      `insert into workcount values ('${interaction.user.id}', 1) on duplicate key update value = value;`
     );
 
-    interaction.reply(`usecount: ${res[0].value}`);
+    const res = await Query(
+      `select * from workcount where id = '${interaction.user.id}';`
+    );
+
+    interaction.reply(`workcount: ${res[0].value}`);
   },
 };
 
