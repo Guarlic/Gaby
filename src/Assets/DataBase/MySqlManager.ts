@@ -11,16 +11,6 @@ export const pool = mysql.createPool({
   queueLimit: 0,
 });
 
-export const SQLConnect = (): Promise<boolean> =>
-  new Promise<boolean>(async (resolve, reject) => {
-    await pool.getConnection()
-      .then(() => logger.info('==> MySQL Connected...'))
-      .catch(err => {
-        logger.error(err);
-        reject(err);
-      });
-  });
-
 export const Query = (sql: string): Promise<any> =>
   new Promise<any>(async (resolve, reject) => {
     await pool.query<mysql.RowDataPacket[]>(sql)
