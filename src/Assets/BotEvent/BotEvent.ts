@@ -8,7 +8,6 @@ import {
   ActivityOptions,
   Interaction,
 } from 'discord.js';
-import { SQLConnect } from '../DataBase/MySqlManager.js';
 import InterAcRecvFunc from './InterAcRecv.js';
 import logger from '../Utils/Logger.js';
 import DBConnect from '../DataBase/DBManager.js';
@@ -26,7 +25,6 @@ export async function Start() {
   logger.info(`Gaby has started.`);
 
   DBConnect();
-  SQLConnect();
 
   setInterval(() => {
     const latency = client.ws.ping;

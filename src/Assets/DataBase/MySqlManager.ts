@@ -1,4 +1,4 @@
-import * as mysql from 'mysql2/promise';
+import mysql from 'mysql2/promise';
 import logger from '../Utils/Logger.js';
 
 export const pool = mysql.createPool({
