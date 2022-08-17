@@ -22,20 +22,8 @@ executed command: ${interaction.commandName}`
     `select * from usecount where id = '${interaction.user.id}';`
   );*/
 
-  const res = await Query(
-    `select * from usecount where id = '${interaction.user.id}'`,
-  );
-
-  if (res.length < 1) {
-    await Query(
-      `insert into usecount values ('${interaction.user.id}', 0);`
-    );
-  }
-
-  const usecount = res[0].value;
-
   await Query(
-    `update usecount set value = ${usecount + 1} where id = '${interaction.user.id}';`
+    `insert into usecount values ('${interaction.user.id}', 1) on duplicate key update value = value + 1;`
   );
 
   const data = await UserModel.findOne({ id: interaction.user.id });
