@@ -1,7 +1,6 @@
 import { BaseCommandInteraction } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { Query } from '../DataBase/MySqlManager.js';
-import logger from '../Utils/Logger.js';
 import ICommand from '../Interfaces/ICommand.js';
 
 const command: ICommand = {
