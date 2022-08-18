@@ -12,7 +12,7 @@ const command: ICommand = {
       `select value from usecount where id = '${interaction.user.id}'`
     );
 
-    interaction.reply(`usecount: ${res[0].value}`);
+    interaction.reply(`usecount: ${res.rows[0].value}`);
   },
 };
 

@@ -14,8 +14,13 @@ export const pool = mysql.createPool({
 export const Query = (sql: string): Promise<any> =>
   new Promise<any>(async (resolve, reject) => {
     await pool.query<mysql.RowDataPacket[]>(sql)
-      .then(([rows]) => {
-        resolve(rows);
+      .then(([rows, fields]) => {
+        const res = {
+          rows,
+          fields,
+        };
+
+        resolve(res);
       })
       .catch(err => {
         logger.error(`Error: ${err.stack}`);

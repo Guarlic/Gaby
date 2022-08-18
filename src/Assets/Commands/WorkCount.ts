@@ -16,7 +16,7 @@ const command: ICommand = {
       `select value from workcount where id = '${interaction.user.id}';`
     );
 
-    interaction.reply(`workcount: ${res[0].value}`);
+    interaction.reply(`workcount: ${res.rows[0].value}`);
   },
 };
 
