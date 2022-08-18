@@ -13,7 +13,7 @@ const command: ICommand = {
     );
 
     const res = await Query(
-      `select * from workcount where id = '${interaction.user.id}';`
+      `select value from workcount where id = '${interaction.user.id}';`
     );
 
     interaction.reply(`workcount: ${res[0].value}`);

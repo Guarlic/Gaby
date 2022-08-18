@@ -9,7 +9,7 @@ const command: ICommand = {
     .setDescription('Usecount of NewGaby'),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
     const res = await Query(
-      `select * from usecount where id = '${interaction.user.id}'`
+      `select value from usecount where id = '${interaction.user.id}'`
     );
 
     interaction.reply(`usecount: ${res[0].value}`);
