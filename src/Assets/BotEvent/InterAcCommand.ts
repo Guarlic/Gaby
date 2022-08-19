@@ -1,6 +1,6 @@
 import { BaseCommandInteraction } from 'discord.js';
 import { UserModel } from '../DataBase/UserSchema.js';
-import { pool, Query } from '../DataBase/MySqlManager.js';
+import { Query } from '../DataBase/MySqlManager.js';
 import CommandBundle from '../Commands/CommandBundle.js';
 import logger from '../Utils/Logger.js';
 
