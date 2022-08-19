@@ -13,7 +13,7 @@ export const pool = mysql.createPool({
 
 export const Query = (sql: string): Promise<any> =>
   new Promise<any>(async (resolve, reject) => {
-    await pool.query<mysql.RowDataPacket[]>(sql)
+    await pool.query(sql)
       .then(([rows, fields]) => {
         const res = {
           rows,

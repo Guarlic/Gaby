@@ -18,14 +18,6 @@ User [${interaction.user.username}]
 executed command: ${interaction.commandName}`
   );
 
-  /*const res = await Query(
-    `select * from usecount where id = '${interaction.user.id}';`
-  );*/
-
-  await Query(
-    `insert into usecount values ('${interaction.user.id}', 1) on duplicate key update value = value + 1;`
-  );
-
   const data = await UserModel.findOne({ id: interaction.user.id });
 
   const ignorelist = [
@@ -35,6 +27,10 @@ executed command: ${interaction.commandName}`
   ];
 
   if (data && !ignorelist.find(value => value === interaction.commandName)) {
+    await Query(
+      `insert into usecount values ('${interaction.user.id}', 1) on duplicate key update value = value + 1;`
+    );
+
     const xplist = [ 1, 3, 5, 7, 9, 10 ];
     const xp = xplist[Math.floor(Math.random() * xplist.length)];
 
