@@ -9,7 +9,7 @@ const command: ICommand = {
     .setName('secession')
     .setDescription('Delete your Gaby account'),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
-    const data = await UserModel.findOne({ id: interaction.user?.id });
+    const data = await UserModel.findOne({ id: interaction.user.id });
 
     if (!data) {
       interaction.reply('가입이나 해..');
@@ -17,7 +17,7 @@ const command: ICommand = {
       return;
     }
 
-    await UserModel.deleteOne({ id: interaction.user?.id });
+    await UserModel.deleteOne({ id: interaction.user.id });
 
     await Query(
       `delete from usecount where id = '${interaction.user.id}';`

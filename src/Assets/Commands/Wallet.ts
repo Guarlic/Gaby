@@ -29,7 +29,7 @@ const command: ICommand = {
       return;
     }
 
-    const id = user ? user.id : interaction.user?.id;
+    const id = user ? user.id : interaction.user.id;
     const data = await UserModel.findOne({ id: id });
 
     if (!data) {

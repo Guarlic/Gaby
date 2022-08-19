@@ -16,7 +16,7 @@ const command: ICommand = {
     .setName('shop')
     .setDescription('Check shop'),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
-    const data = await UserModel.findOne({ id: interaction.user?.id });
+    const data = await UserModel.findOne({ id: interaction.user.id });
 
     if (!data) {
       interaction.reply('가입을 하고 찾아와주세요.');

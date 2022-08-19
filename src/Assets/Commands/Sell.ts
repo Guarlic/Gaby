@@ -25,7 +25,7 @@ const command: ICommand = {
         .setDescription('amount of item (default: 1)')
     ) as SlashCommandBuilder,
   SlashExecute: async (interaction: BaseCommandInteraction) => {
-    const data = await UserModel.findOne({ id: interaction.user?.id });
+    const data = await UserModel.findOne({ id: interaction.user.id });
 
     // 이녀석 가입 안했어?!
     if (!data) {
