@@ -73,7 +73,7 @@ const command: ICommand = {
         `you earned money: ${money}₩`
       )
       .setFooter(
-        `and.. ${exp}xp.. ${levelup ? `\n(Levelup! ${data.level - 1} -> ${data.level})` : ''}`
+        `and.. ${exp}xp.. ${`\n(Levelup! ${data.level - 1} -> ${data.level})` || ''}`
       );
 
     interaction.reply({ embeds: [embed] });
