@@ -53,6 +53,10 @@ export async function MsgRecv(msg: Message) {
   );
 }
 
+/**
+ * 인터렉션 감지 함수임 ㅇㅇ 이거 설명 없길래 추가해봄
+ * @param interaction 커맨드/버튼 등 상호작용
+ */
 export async function InterAcRecv(interaction: Interaction) {
   InterAcRecvFunc(interaction);
 }

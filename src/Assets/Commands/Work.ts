@@ -49,14 +49,10 @@ const command: ICommand = {
     data.money += money;
     data.exp += exp;
 
-    let levelup: boolean = false;
-
     // 레벨업
     if (data.exp >= data.level * 100) {
       data.exp -= data.level * 100;
       data.level++;
-
-      levelup = true;
     }
 
     data.save();

@@ -11,6 +11,11 @@ export const pool = mysql.createPool({
   queueLimit: 0,
 });
 
+/**
+ * MySQL 명령어 실행하고 결과 리턴해줍니다
+ * @param sql MySQL 명령어
+ * @returns *.rows, *.fileds 로 확인 가능합니다
+ */
 export const Query = (sql: string): Promise<any> =>
   new Promise<any>(async (resolve, reject) => {
     await pool.query(sql)
