@@ -1,6 +1,6 @@
 import { BaseCommandInteraction } from 'discord.js';
 import { UserModel } from '../DataBase/UserSchema.js';
-import { Query } from '../DataBase/MySqlManager.js';
+import { addUse } from '../DataBase/MySqlManager.js';
 import CommandBundle from '../Commands/CommandBundle.js';
 import logger from '../Utils/Logger.js';
 
@@ -27,9 +27,7 @@ executed command: ${interaction.commandName}`
   ];
 
   if (data && !ignorelist.find(value => value === interaction.commandName)) {
-    await Query(
-      `insert into usecount values ('${interaction.user.id}', 1) on duplicate key update value = value + 1;`
-    );
+    await addUse(interaction.user.id as string);
 
     const xplist = [ 1, 3, 5, 7, 9, 10 ];
     const xp = xplist[Math.floor(Math.random() * xplist.length)];

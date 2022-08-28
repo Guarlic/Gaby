@@ -12,6 +12,9 @@ import InterAcRecvFunc from './InterAcRecv.js';
 import logger from '../Utils/Logger.js';
 import DBConnect from '../DataBase/DBManager.js';
 
+/**
+ * 봇 클라이언또다.
+ */
 export const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });

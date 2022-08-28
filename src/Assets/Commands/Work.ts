@@ -2,7 +2,7 @@ import { MessageEmbed, BaseCommandInteraction  } from 'discord.js';
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { imageurl, color } from '../Utils/EmbedConfig.js';
 import { UserModel } from '../DataBase/UserSchema.js';
-import { Query } from '../DataBase/MySqlManager.js';
+import { addWork } from '../DataBase/MySqlManager.js';
 import { QuickDB } from 'quick.db';
 import ICommand from '../Interfaces/ICommand.js';
 
@@ -57,9 +57,7 @@ const command: ICommand = {
 
     data.save();
 
-    await Query(
-      `insert into workcount values ('${interaction.user.id}', 1) on duplicate key update value = value + 1;`
-    );
+    await addWork(interaction.user.id as string);
 
     const embed = new MessageEmbed()
       .setAuthor('Gaby', imageurl)
