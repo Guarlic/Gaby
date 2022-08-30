@@ -27,7 +27,7 @@ executed command: ${interaction.commandName}`
   ];
 
   if (data && !ignorelist.find(value => value === interaction.commandName)) {
-    await addUse(interaction.user.id as string);
+    await addUse(interaction.user.id);
 
     const xplist = [ 1, 3, 5, 7, 9, 10 ];
     const xp = xplist[Math.floor(Math.random() * xplist.length)];

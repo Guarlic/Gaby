@@ -57,7 +57,7 @@ const command: ICommand = {
 
     data.save();
 
-    await addWork(interaction.user.id as string);
+    await addWork(interaction.user.id);
 
     const embed = new MessageEmbed()
       .setAuthor('Gaby', imageurl)
