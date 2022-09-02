@@ -36,35 +36,3 @@ export const Query = (sql: string): Promise<any> =>
         reject(err);
       });
   });
-
-/**
- * usecount 올려주는 함수
- * @param id 유저 id
- */
-export const addUse = (id: string): Promise<boolean> =>
-  new Promise<boolean>(async (resolve, reject) => {
-    await Query(
-      `insert into usecount value ('${id}', 1) on duplicate key update value = value + 1;`
-    )
-    .then(() => resolve(true))
-    .catch(err => {
-      logger.error(`Error: ${err.stack}`);
-      reject(err);
-    });
-  });
-
-/**
- * workcount 올려주는 함수
- * @param id 유저 id
- */
-export const addWork = (id: string): Promise<boolean> =>
-  new Promise<boolean>(async (resolve, reject) => {
-    await Query(
-      `insert into workcount value ('${id}', 1) on duplicate key update value = value + 1;`
-    )
-    .then(() => resolve(true))
-    .catch(err => {
-      logger.error(`Error: ${err.stack}`);
-      reject(err);
-    });
-  });
