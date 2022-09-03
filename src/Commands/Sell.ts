@@ -73,11 +73,11 @@ const command: ICommand = {
     data.save();
 
     const embed = new MessageEmbed()
-      .setAuthor('Gaby', imageurl)
+      .setAuthor({ name: 'Gaby', url: imageurl })
       .setColor(color)
       .setTitle('== !Client Receipt! ==')
       .addField('you sold', `${sold!.level} item; ${oItem} (${sold!.price}₩)`)
-      .setFooter(`amount: ${amount}`);
+      .setFooter({ text: `amount: ${amount}` });
     
     interaction.reply({ embeds: [embed] });
   },

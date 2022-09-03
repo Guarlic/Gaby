@@ -20,7 +20,7 @@ const command: ICommand = {
     await UserModel.create({ id: interaction.user?.id });
 
     const embed = new MessageEmbed()
-      .setAuthor('Gaby', imageurl)
+      .setAuthor({ name: 'Gaby', url: imageurl })
       .setColor(color)
       .setTitle('Regist Account')
       .setDescription('success!');

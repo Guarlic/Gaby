@@ -40,7 +40,7 @@ const command: ICommand = {
     }
 
     const embed = new MessageEmbed()
-      .setAuthor('Gaby', imageurl)
+      .setAuthor({ name: 'Gaby', url: imageurl })
       .setColor(color)
       .setTitle('Your Inventory')
       .setDescription(inv);

@@ -9,7 +9,7 @@ const command: ICommand = {
     .setDescription('Debug Command'),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
     const embed = new MessageEmbed()
-      .setAuthor('Gaby', imageurl)
+      .setAuthor({ name: 'Gaby', url: imageurl })
       .setColor(color)
       .setTitle('Debug')
       .addFields(

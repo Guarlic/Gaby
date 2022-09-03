@@ -10,7 +10,7 @@ const command: ICommand = {
     .setDescription('Pong!'),
   SlashExecute: async (interaction: BaseCommandInteraction) => {
     const embed = new MessageEmbed()
-      .setAuthor('Gaby', imageurl)
+      .setAuthor({ name: 'Gaby', url: imageurl })
       .setColor(color)
       .setTitle('**🏓 Pong!**')
       .setDescription(`현재 뉴가비의 핑은 ${client.ws.ping}ms 입니닷!`)

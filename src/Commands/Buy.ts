@@ -72,10 +72,12 @@ const command: ICommand = {
     data.save();
 
     const embed = new MessageEmbed()
-      .setAuthor('Gaby', imageurl)
+      .setAuthor({ name: 'Gaby', url: imageurl })
       .setColor(color)
       .setTitle('== !Shop cart! ==')
-      .addField('you bought', `${bought!.level} item; ${oItem} (${bought!.price}₩)`)
+      .addFields(
+        { name: 'you bought', value: `${bought!.level} item; ${oItem} (${bought!.price}₩)` }
+      )
       .setFooter(`amount: ${amount}`);
     
     interaction.reply({ embeds: [embed] });
