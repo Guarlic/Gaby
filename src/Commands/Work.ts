@@ -50,9 +50,12 @@ const command: ICommand = {
     data.exp += exp;
 
     // 레벨업
+    let levelup: boolean = false;
+
     if (data.exp >= data.level * 100) {
       data.exp -= data.level * 100;
       data.level++;
+      levelup = true;
     }
 
     data.save();
@@ -68,9 +71,9 @@ const command: ICommand = {
       .setDescription(
         `you earned money: ${money}₩`
       )
-      .setFooter(
-        `and.. ${exp}xp.. ${`\n(Levelup! ${data.level - 1} -> ${data.level})` || ''}`
-      );
+      .setFooter({
+        text: `and.. ${exp}xp.. ${ levelup ? `\n(Levelup! ${data.level - 1} -> ${data.level})` : ''}`
+      });
 
     interaction.reply({ embeds: [embed] });
   },
