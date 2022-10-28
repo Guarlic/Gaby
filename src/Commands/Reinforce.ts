@@ -37,6 +37,12 @@ const command: ICommand = {
 
     const item = ItemBundle.find(value => value.name === oItem);
 
+    if (!item) {
+      interaction.reply('존재하지 않는 아이템입니다!');
+
+      return;
+    }
+
     const arnum = item!.id;
 
     if (arnum === null) {
@@ -80,7 +86,11 @@ const command: ICommand = {
       data.save();
 
       interaction.reply({
-        content: 'Reinforce Complete! (Success)',
+        content:
+`
+Reinforce Complete! (Success)
+Item: ${oItem}
+`,
         files: ['./img/success.png']
       });
 
@@ -96,7 +106,11 @@ const command: ICommand = {
 
     // 실패
     interaction.reply({
-      content: 'Reinforce Complete! (Failed)',
+      content:
+`
+Reinforce Complete! (Failed)
+Item: ${oItem}
+`,
       files: ['./img/failed.png']
     });
   },

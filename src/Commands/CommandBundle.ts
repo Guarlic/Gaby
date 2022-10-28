@@ -15,8 +15,6 @@ import Money from './Money.js';
 import Reinforce from './Reinforce.js';
 import UseCount from './UseCount.js';
 import WorkCount from './WorkCount.js';
-import SetSign from './SetSign.js';
-import GetSign from './GetSign.js';
 
 const CommandBundle: ICommand[] = [
   Wallet,
@@ -35,8 +33,6 @@ const CommandBundle: ICommand[] = [
   Reinforce,
   UseCount,
   WorkCount,
-  SetSign,
-  GetSign,
 ];
 
 export default CommandBundle;
