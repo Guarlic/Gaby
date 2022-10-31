@@ -6,6 +6,7 @@ import {
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { imageurl, color } from '../Utils/EmbedConfig.js';
 import { UserModel } from '../DataBase/UserSchema.js';
+import logger from '../Utils/Logger.js';
 import ItemBundle from '../Minigame/Items/ItemBundle.js';
 import ICommand from '../Interfaces/ICommand.js';
 
@@ -41,9 +42,9 @@ const command: ICommand = {
     const bought = ItemBundle.find(item => item.name === oItem);
     const amount = onum ? onum : 1;
 
-    const arnum = bought!.id;
+    logger.info(bought);
 
-    if (arnum === null) {
+    if (!bought) {
       interaction.reply(
 `${oItem} 은 존재하지 않는 아이템입니다!
 <shop> 명령어를 사용하여 아이템 목록을 확인해주세요.`
@@ -57,6 +58,8 @@ const command: ICommand = {
 
       return;
     }
+
+    const arnum = bought!.id;
 
     // 인벤토리 json으로 불러오기
     const invjson = JSON.parse(data.inventory);

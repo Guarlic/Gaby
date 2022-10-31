@@ -41,9 +41,7 @@ const command: ICommand = {
     const sold = ItemBundle.find(item => item.name === oItem);
     const amount = onum ? onum : 1;
 
-    const arnum = sold!.id;
-
-    if (arnum === null) {
+    if (!sold) {
       interaction.reply(
 `${oItem} 은 존재하지 않는 아이템입니다!
 <shop> 명령어를 사용하여 아이템 목록을 확인해주세요.`
@@ -54,6 +52,7 @@ const command: ICommand = {
 
     // 인벤토리 json 으로 불러오기
     const invjson = JSON.parse(data.inventory);
+    const arnum = sold!.id;
 
     if (invjson[arnum].count - amount < 0) {
       interaction.reply('삐빅- 아이템이 부족합니다.');
